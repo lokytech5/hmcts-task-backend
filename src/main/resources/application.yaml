@@ -26,6 +26,21 @@ spring:
     import: "optional:configtree:/mnt/secrets/test/"
   application:
     name: Dev Test
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hmcts_tasks}
+    username: ${DB_USERNAME:task_user}
+    password: ${DB_PASSWORD:task_password}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+  flyway:
+    enabled: true
+
+
 #  datasource:
 #    driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}
